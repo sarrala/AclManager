@@ -12,7 +12,12 @@
  * @link          http://github.com/FMCorz/AclManager
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
- 
+namespace AclManager\Controller;
+
+use AclManager\Controller\AclManagerAppController;
+use Cake\Event\Event;
+use Cake\Core\Configure;
+
 class AclController extends AclManagerAppController {
 
 	public $paginate = array();
@@ -22,8 +27,8 @@ class AclController extends AclManagerAppController {
 	/**
 	 * beforeFitler
 	 */
-	public function beforeFilter() {
-		parent::beforeFilter();
+	public function beforeFilter(Event $event) {
+		parent::beforeFilter($event);
 		
 		/**
 		 * Loading required Model

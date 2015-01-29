@@ -12,14 +12,19 @@
  * @link          http://github.com/FMCorz/AclManager
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+namespace AclManager\Controller;
+
+use App\Controller\AppController;
+use Cake\Event\Event;
+use Cake\Core\Configure;
 
 class AclManagerAppController extends AppController {
 
 	/**
 	 * beforeFitler
 	 */
-	public function beforeFilter() {
-		parent::beforeFilter();
+	public function beforeFilter(Event $event) {
+		parent::beforeFilter($event);
 		
 		/**
 		 * Force prefix
