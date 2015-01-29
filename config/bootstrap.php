@@ -12,6 +12,7 @@
  * @link          http://github.com/FMCorz/AclManager
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+use Cake\Core\Configure;
 
 /**
  * List of AROs (Class aliases)
