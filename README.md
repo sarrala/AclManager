@@ -1,6 +1,11 @@
-# AclManager for CakePHP 2.x
+# AclManager for CakePHP 3.x
 
-This plugins allows you to easily manage your permissions in CakePHP 2.x through the Acl module.
+# ---------------------------
+# MIGRATION IN PROCESS
+# CURRENTLY ONLY FOR DEVELOPMENT
+# ---------------------------
+
+This plugins allows you to easily manage your permissions in CakePHP 3.x through the Acl module.
 
 ## Features
 
@@ -11,7 +16,7 @@ This plugins allows you to easily manage your permissions in CakePHP 2.x through
 
 ## Requirements
 
-* CakePHP 2.x
+* CakePHP 3.x
 
 ## How to install
 
