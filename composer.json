@@ -1,11 +1,32 @@
 {
-    "name": "fmcorz/acl-manager",
+    "name": "sarrala/acl-manager",
     "type": "cakephp-plugin",
-    "description": "AclManager for CakePHP 2.x",
-    "homepage": "http://github.com/FMCorz/AclManager",
+    "description": "AclManager for CakePHP 3.x framework",
+    "homepage": "http://github.com/sarrala/AclManager",
     "license": "MIT",
-    "require": {
-        "php": ">=5.2.8",
-        "composer/installers": "*"
-    }
+	"keywords": ["cakephp", "acl-manager"],
+	"require": {
+		"cakephp/cakephp": "~3.0",
+		"cakephp/plugin-installer": "*"
+	},
+	"support": {
+		"issues": "https://github.com/sarrala/acl-manager/issues",
+		"source": "https://github.com/sarrala/acl-manager"
+	},
+	"minimum-stability": "dev",
+	"require-dev": {
+		"cakephp/cakephp-codesniffer": "2.0.*-dev",
+		"phpunit/phpunit": "4.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Acl\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Acl\\Test\\": "tests",
+			"Cake\\Test\\": "vendor/cakephp/cakephp/tests"
+		}
+	}
 }
