@@ -1,3 +1,6 @@
+<?php 
+use Cake\Core\Configure;
+?>
 <div class="view">
 	<h3><?php echo sprintf(__('Acl Manager %s'), Configure::read('AclManager.version')); ?></h3>
 	<p>This plugin allows you to easily manage your permissions. To use it you need to set up your Acl environment.</p>

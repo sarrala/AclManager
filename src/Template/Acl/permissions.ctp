@@ -1,3 +1,6 @@
+<?php 
+use Cake\Core\Configure;
+?>
 <div class="form">
 <h3><?php echo sprintf(__("%s permissions"), $aroAlias); ?></h3>
 <p><?php echo $this->Paginator->counter(array('format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%'))); ?></p>
@@ -32,11 +35,11 @@ foreach ($acos as $id => $aco) {
 	}
 	?><td><?php echo ($ident == 1 ? "<strong>" : "" ) . ($uglyIdent ? str_repeat("&nbsp;&nbsp;", $ident) : "") . h($alias) . ($ident == 1 ? "</strong>" : "" ); ?></td>
 	<?php foreach ($aros as $aro): 
-		$inherit = $this->Form->value("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro[$aroAlias]['id']}-inherit");
-		$allowed = $this->Form->value("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro[$aroAlias]['id']}"); 
+		$inherit = $this->Form->value("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro['id']}-inherit");
+		$allowed = $this->Form->value("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro['id']}"); 
 		$value = $inherit ? 'inherit' : null; 
 		$icon = $this->Html->image(($allowed ? 'test-pass-icon.png' : 'test-fail-icon.png')); ?>
-		<td><?php echo $icon . " " . $this->Form->select("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro[$aroAlias]['id']}", array(array('inherit' => __('Inherit'), 'allow' => __('Allow'), 'deny' => __('Deny'))), array('empty' => __('No change'), 'value' => $value)); ?></td>
+		<td><?php echo $icon . " " . $this->Form->select("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro['id']}", ['inherit' => __('Inherit'), 'allow' => __('Allow'), 'deny' => __('Deny'), 'empty' => __('No change'), 'value' => $value]); ?></td>
 	<?php endforeach; ?>
 <?php 
 	$lastIdent = $ident;
@@ -46,7 +49,8 @@ for ($i = 0; $i <= $lastIdent; $i++) {
 }
 ?></table>
 <?php
-echo $this->Form->end(__("Save"));
+echo $this->Form->submit(__("Save"));
+echo $this->Form->end();
 ?>
 <p><?php echo $this->Paginator->counter(array('format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%'))); ?></p>
 <div class="paging">

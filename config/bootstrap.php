@@ -14,11 +14,18 @@
  */
 use Cake\Core\Configure;
 
+if (!Configure::read('Acl.classname')) {
+	Configure::write('Acl.classname', 'DbAcl');
+}
+if (!Configure::read('Acl.database')) {
+	Configure::write('Acl.database', 'default');
+}
+
 /**
  * List of AROs (Class aliases)
  * Order is important! Parent to Children
  */
-Configure::write('AclManager.aros', array('Role', 'User'));
+Configure::write('AclManager.aros', array('UserGroups', 'Users'));
 
 /**
  * Limit used to paginate AROs

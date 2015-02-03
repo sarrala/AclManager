@@ -17,9 +17,13 @@ namespace AclManager\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Core\Configure;
+use Acl\Controller\Component\AclComponent;
+use Cake\Controller\ComponentRegistry;
 
-class AclManagerAppController extends AppController {
+abstract class AclManagerAppController extends AppController {
 
+	protected $AclManager = null;
+	
 	/**
 	 * beforeFitler
 	 */
@@ -38,6 +42,16 @@ class AclManagerAppController extends AppController {
 			$this->request->params['action'] = str_replace($prefix . "_", "", $this->request->params['action']);
 			$this->view = str_replace($prefix . "_", "", $this->view);
 		}
+		
+		/*
+		 * Load Acl tables
+		 */
+		$registry = new ComponentRegistry();
+		$this->AclManager = new AclComponent($registry);
+		
+		/* Load other plugins / helpers */
+		$this->loadComponent('Flash');
 	}
+	
 }
 
